@@ -51,7 +51,7 @@
     }
 
     .accordion-content.open {
-      max-height: 200px; /* Adjust based on content */
+      max-height: 200px;
       padding: 15px;
     }
 
@@ -99,7 +99,6 @@
   </div>
 
   <script>
-    // JavaScript to handle accordion functionality
     document.addEventListener('DOMContentLoaded', () => {
       const headers = document.querySelectorAll('.accordion-header');
 
@@ -108,13 +107,11 @@
           const content = header.nextElementSibling;
           const isOpen = content.classList.contains('open');
 
-          // Close all open sections
           document.querySelectorAll('.accordion-content.open').forEach(openContent => {
             openContent.classList.remove('open');
             openContent.previousElementSibling.classList.remove('open');
           });
 
-          // Toggle the clicked section
           if (!isOpen) {
             content.classList.add('open');
             header.classList.add('open');
