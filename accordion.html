@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accordion Component</title>
+  <style>
+    
+    h1 {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 2.5rem;
+  color: #333;
+  margin: 40px 0 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+    
+    .accordion {
+      max-width: 600px;
+      margin: 20px auto;
+      font-family: Arial, sans-serif;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .accordion-header {
+      background-color: #f4f4f4;
+      padding: 15px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s;
+    }
+
+    .accordion-header:hover {
+      background-color: #e0e0e0;
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 15px;
+      background-color: #fff;
+      transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    }
+
+    .accordion-content.open {
+      max-height: 200px; /* Adjust based on content */
+      padding: 15px;
+    }
+
+    .accordion-header::after {
+      content: '+';
+      font-size: 18px;
+    }
+
+    .accordion-header.open::after {
+      content: '−';
+    }
+  </style>
+</head>
+<body>
+  <h1>Frequently Asked Questions</h1>
+  <div class="accordion">
+    <div class="accordion-item">
+      <div class="accordion-header">What is roadmap.sh?</div>
+      <div class="accordion-content">
+        An accordion component is a UI element that organizes content into collapsible sections. Users can click on a header to expand or collapse the associated content, typically allowing only one section to be open at a time.
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-header">What are the plans for roadmap.sh?</div>
+      <div class="accordion-content">
+        It keeps the interface clean by hiding content until needed, reduces scrolling, and helps users focus on one piece of information at a time, making navigation more intuitive.
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-header">How is roadmap.sh built?</div>
+      <div class="accordion-content">
+        Yes, accordion components are highly customizable. You can modify colors, fonts, animations, and layouts using CSS to match your website's design.
+      </div>
+    <div class="accordion-item">
+      <div class="accordion-header">Can I use roadmap.sh in my team?</div>
+      <div class="accordion-content">
+        An accordion component is a UI element that organizes content into collapsible sections. Users can click on a header to expand or collapse the associated content, typically allowing only one section to be open at a time.
+      </div>
+      <div class="accordion-item">
+      <div class="accordion-header">Can I create custom roadmaps?</div>
+      <div class="accordion-content">
+        An accordion component is a UI element that organizes content into collapsible sections. Users can click on a header to expand or collapse the associated content, typically allowing only one section to be open at a time.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to handle accordion functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const headers = document.querySelectorAll('.accordion-header');
+
+      headers.forEach(header => {
+        header.addEventListener('click', () => {
+          const content = header.nextElementSibling;
+          const isOpen = content.classList.contains('open');
+
+          // Close all open sections
+          document.querySelectorAll('.accordion-content.open').forEach(openContent => {
+            openContent.classList.remove('open');
+            openContent.previousElementSibling.classList.remove('open');
+          });
+
+          // Toggle the clicked section
+          if (!isOpen) {
+            content.classList.add('open');
+            header.classList.add('open');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
